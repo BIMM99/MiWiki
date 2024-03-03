@@ -1,0 +1,2 @@
+curl https://dumps.wikimedia.org/ptwiki/latest/ptwiki-latest-pages-articles.xml.bz2 --output ./dumps/ptwiki-latest-pages-articles.xml.bz2
+python -m wikiextractor.WikiExtractor ./dumps/ptwiki-latest-pages-articles.xml.bz2 -o ./text/text_pt

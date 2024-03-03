@@ -1,0 +1,439 @@
+---
+title: "Wikipédia : quels enjeux Big Data ?"
+date: today
+date-format: "DD/MM/YYYY"
+format: 
+  pdf:
+    toc: true
+    number-sections: true
+    colorlinks: true
+    toc-title: Sommaire
+    code-line-numbers: true
+toc : true
+toc-title: Sommaire
+number-sections: true
+author: "Benoît MARION"
+lang: fr
+---
+
+# Mise en contexte
+## Qu'est-ce que Wikipédia ?
+__Wikipédia__ est une __encyclopédie en ligne, libre, gratuite et collaborative__. Crée le 15 janvier 2001 par Jimmy Wales et Larry Sanger, elle se caractérisa avant tout par son contenu librement réutilisable, son __aspect participatif__ (elle est écrite par des bénévoles), sa __structure ouverte__ et sa __politique de neutralité__ (tant politiquement que pour la publicité).
+
+## Quelques chiffres (au 29 février 2024)
+Côté contenu accessible, l'encyclopédie __Wikipédia__ est disponible en __326 langues__ (contenu différent) et contient plus de __60 millions d'articles__ au total. En français, elle contient presque __2,6 millions d'articles__ se classant au __quatrième rang__ derrière les versions en anglais, cébouano et allemand.
+
+Côté fréquentation, Wikipédia est l'un des sites les plus visités au monde. Le nombre de pages wikipedia francophone visitées serait au delà de __1,3 milliard en janvier 2024__. Avec environ __30 millions de visiteurs uniques__ (et plus de 90 millions d'appareils uniques), le site francophone se classe généralement dans le __top 10 des sites les plus visités__ en France et dans le top 20 mondial.
+
+Finalement concernant les __modifications__, sur les pages francophones, environ __665 000 pages (soit 1%)__ auraient été faites en janvier 2024 et 7 495 pages ajoutées ont été comptabilisées. Pour janvier 2024 , la version francophone est forte d'une communauté de près de __53 000 rédacteurs__ (au moins une modification) et de plus de __6 000 contributeurs actifs__ (plus de 5 modifications). Concernant, l'ensemble des versions de Wikipédia, on compterait plus de __300 000 contributeurs actifs__, avec 170 000 pages ajoutées, plus de __12 millions de modifications__ (en janvier 2024) et environ __2 modifications par seconde en moyenne__.
+
+
+# Enjeux Big Data pour Wikipédia
+## Aspects volumétriques
+Ces chiffres sont le reflet de la grande quantité de données que se doivent d'héberger les serveurs de Wikipédia. Ainsi le __fichier XML contenant les pages actuelles de Wikipédia en anglais__ pèse environ __22,14 Go__ (Gigaoctets) sans les médias et compressé. L __'historique complet (avec toutes les discussions, le notes de communautés et les articles) de Wikipédia en anglais__ pesait envison __10 To__ (Téraoctets) en 2013 (pas de données plus récentes trouvées). Le plus gros morceau, __Wikimedia Commons__, qui contient les __images__, __vidéos__ et __autres médias__ utilisés dans les Wikipédias, pèse __428,36 To__. 
+
+## Trafic
+Comme vu précédemment, Wikipédia est un des sites les plus visités au monde. Cela implique un trafic important et une gestion des données en conséquence. En effet, le site doit être capable de gérer des centaines __millions de requêtes__ par jour, et ce de manière efficace et rapide. Il se doit aussi de faire face aux __pics de trafic__ (comme lors de la mort de personnalités publiques, de catastrophes naturelles, etc.) qui peuvent être très importants et aux __attaques__ (comme les attaques par déni de service) qui peuvent être très lourdes.
+
+## Cohérence et historicisation
+Wikipédia étant avant tout une encyclopédie participative, tout un chacun peut modifier le contenu. Il est donc important de pouvoir garantir la __cohérence des données__ entre les différents serveurs et de pouvoir retrouver une __version antérieure__ en cas de problème.
+
+## Fiabilité du contenu
+Wikipédia se doit de garantir la qualité de son contenu. Cela passe par la __vérification des sources__, la __neutralité des articles__, la __suppression des contenus non pertinents ou non vérifiables__, etc. Ce travail est effectué par des bénévoles, mais aussi par des outils automatiques qui peuvent parfois être lourds, notamments dans le cas de "vandalisme" (modification malveillante du contenu) massif ou de "guerre d'édition" (modification répétée d'un contenu) sur de multiples articles dans des contextes politiques tendus (_cf_ articles de presse en source).
+
+## Protection des données personnelles
+Wikipédia se doit de protéger les données personnelles de ses utilisateurs et ce à divers niveau. Cette politique de protection des données personnelles s'explique par différentes raisons :
+
+- __philosophique__ : Wikipédia se veut être un projet libre et ouvert, et la protection des données personnelles est un enjeu important pour garantir la liberté des utilisateurs.
+- __légale__ : Wikipédia se doit de respecter les lois en vigueur sur la protection des données personnelles.
+- __technique__ : Wikipédia doit protéger les données personnelles de ses utilisateurs contre les attaques informatiques.
+- __politique__ : Wikipédia doit protéger les données personnelles de ses utilisateurs contre les abus de pouvoir dans certains pays (Wikipédia avait par exemple été interdit d'accès pendant 3 ans en Turquie, _cf_ articles de presse en source ).
+
+D'une part, les données personnelles des utilisateurs sont protégées par la __licence Creative Commons__ qui interdit l'utilisation des données personnelles à des fins commerciales et aucune donnée personnelle n'est collectée par Wikipédia (sauf pour les utilisateurs enregistrés qui font des modifications).
+
+Aussi, les services de WikiMédia pour éviter les attaques de type _DoS_ (déni de service) ou _DDoS_ (déni de service distribué) ne peuvent se baser sur les données personnelles des utilisateurs (comme le fait par exemple _Cloudflare_).
+Enfin Wikipédia offre la possibilité de demander la suppression de données personnelles.
+
+## Autres enjeux
+D'une part, outre le volume, la __variété des données__ est un aspect important. Wikipédia se compose tant de texte structuré que d'images, audios, et vidéos. Beaucoup de ces données sont mutuelles (une image peut être utilisée dans plusieurs articles) et doivent donc être stockées de manière efficace.
+
+D'autre part, Wikipédia étant entièrement gratuite, la __gestion des coûts__ est un enjeu important. Il est donc important de pouvoir stocker et traiter les données de manière efficace et peu coûteuse sans gêner la qualité du service pour les utilisateurs.
+
+
+# Infrastructure de Wikipédia
+L'infrastructure de tout Wikipédia est gérée par la __Wikimedia Foundation__, une organisation à but non lucratif possèdant et gérant tous les serveurs sur lesquels sont hébergés les projets Wikimedia. Ils sont installés aux États-Unis, aux Pays-Bas, à Singapour et en France (Marseille). Cette infrastracture relativement complexe est complètement __ouverte et documentée__. Il est possible de proposer des modifications ou des améliorations à l'infrastructure de Wikipédia, et de suivre les évolutions de celle-ci.
+
+L'essentiel des informations sur l'infrastructure de Wikipédia est disponible sur le site __Wikitech__ qui est un wiki ouvert à tous. Il est possible d'y trouver des informations sur les serveurs, les logiciels utilisés, les protocoles, les outils, etc. Il est aussi possible de suivre les évolutions de l'infrastructure de Wikipédia via des __tableaux de bord__ et des __statistiques__ (_cf_ sources).
+
+Une __conférence vulgarisant l'infrastructure Wikimedia__ tenu en 2019 à la 36C3 (Leipzig) permet de mieux comprendre le fonctionnement et a fortement inspiré cette partie (voir sources).
+
+## MediaWiki
+Au coeur de l'infrastructure se trouve __MediaWiki__, le logiciel qui fait tourner Wikipédia. Il s'agit d'un logiciel libre (licence GNU GPL), c'est-à-dire que son code source est ouvert et peut être modifié par n'importe qui pour son utilisation propre ou la publication. Il tourne sur des serveurs __Apache__ et est écrit en __PHP__ pour afficher les données d'une base de données __MySQL__ (ou __MariaDB__). Son rôle est de _parser_ les articles en __wikimarkup__ pour les afficher en __HTML__. Ces rendus sont automatiséset faits selon les préférences de l'utilisateur (langue, thème, taille de police, etc.) et sont stockés dans les bases de données.
+
+Il permet aussi de faire d'autres actions comme contrôler les utilisateurs, les droits, les pages... Il est aussi capable de gérer des __extensions__ pour ajouter des fonctionnalités supplémentaires comme la gestion des médias, des rendus LaTeX ou un algorithme de ML détectant les contribution "malveillantes" ou étant du "vandalisme".
+
+
+## Bases de données et cache
+Wikipédia dispose de 6 serveurs au total qui contiennent les données dont voici la liste :
+
+| Nom  | Localisation                    | Rôle                | Mise en service |
+|-------|--------------------------------|---------------------|----------|
+| Eqiad | Ashburn, Virginia, États-Unis         | Application + Cache | 2010     |
+| Codfw | Carrollton, Texas, États-Unis  | Application + Cache | 2014     |
+| Esams | Amsterdam, Pays-Bas            | Cache               | 2005 |
+| Ulsfo | San Francisco, California, États-Unis | Cache               | 2014  |
+| Eqsin | Singapour                      | Cache               | 2017 |
+| Drmrs | Marseille, France              | Cache               | 2022  |
+
+On distingue deux types de serveurs : les __serveurs "application"__ qui font touner MediaWiki pour __faire le rendu des pages__ et les __serveurs "cache"__ qui __contiennent les pages déjà rendues__ en HTML dans une base de données. Les premiers comprennent aussi des serveurs de cache. _Eqiad_ est le serveur principal stockant les données "master" et je n'ai pas trouvé d'information sur la manière dont les données sont répliquées avec l'autre serveur "application" (Codfw).
+
+Wikimedia a fait le choix d' __utiliser énormément la mise en en cache pour gérer la charge serveur et répondre rapidement aux requêtes__. Le cache permet de stocker des pages déjà rendues pour les servir plus rapidement (echnage du temps de calcul contre de l'espace disque). Ainsi dans le cas de Wikipédia, il est estimé que __90% des requêtes sont servies par des serveurs de cache__. Les serveurs stockent au total 570 To de données, disposent 70 To de RAM et peuvent servir 350 000 requêtes par seconde (en 2019). Ces valeurs sont importantes mais restent relativement faibles par rapport à la charge d'autre sites ou applications (comme les réseaux sociaux ou les plateformes de _streaming_ par exemple).
+
+Les serveurs "cache" ne servent pas toutes les pages, mais seulement celles qui sont déjà rendues par les serveurs "application". Quotidiennement, le cache est réinitialisé et un nouvelle demande rendu est envoyé à un serveur "application" si la page est demandé par l'utilisateur. 
+
+Les médias (audios, images et vidéos) sont stockés dans un serveur de stockage propre __Swift__ (OpenStack) pour un total de __428 To de données__. Ces ressources sont partégées avec d'autres projets Wikimedia.
+
+## Réseau de distribution de contenu
+Wikipédia dispose de son propre __réseau de distribution de contenu__ (CDN) pour distribuer les médias et les pages rendues basé sur __Apache Traffic Server__. Le CDN permet de distribuer les données de manière efficace et rapide en fonction de la localisation de l'utilisateur. Il permet aussi de réduire la charge sur les serveurs de cache et d'application. Il comprend un service de __load balancing__ pour répartir la charge entre les différents serveurs et contrôler le trafic (pour les attaques par exemple).Les flux de données entre les différents serveurs sont chiffrés par __TLS__ (Transport Layer Security) pour garantir la confidentialité des données.
+
+## Vérification des données
+L'ajout de nouvelles pages ou de modifications ne sont pas vérifiées directement. Le travail de vérification est effectué par des __bénévoles__ qui peuvent être des __patrouilleurs__ (qui vérifient les modifications) ou des __administrateurs__ (qui peuvent supprimer des pages ou bloquer des utilisateurs). Il existe aussi des __outils automatiques__ pour __détecter les modifications malveillantes ou du vandalisme__. 
+
+Ce travail de vérification est essentiel pour garantir la qualité du contenu de Wikipédia mais demande beaucoup de temps et de ressources. Souvent, des messages sont envoyés aux utilisateurs pour leur demander des précisions sur leurs modifications ou bien sont affichés sur les pages pour indiquer que le contenu est à vérifier.
+
+## Autres modes d'accès aux données
+Wikipédia offre la possibilité d'accéder à ses données libre gratuitement. D'une part, il est ainsi possible de télécharger des __dumps__ de données pour les __utiliser hors-ligne ou pour les analyser__ (ce que je vais faire). Ces dumps sont disponibles en plusieurs formats (XML, SQL, JSON, etc.) et sont mis à jour régulièrement. Certaines applications (comme __Kiwix__ ) permettent de télécharger une version de Wikipédia (en ZIM) pour l' __utiliser hors-ligne sur une application__ mobile ou un ordinateur afin de rendre cela plus facile qu'avec les fichiers _dumps_. 
+
+Sinon, il est aussi possible d'accéder aux données via une __API__ (Application Programming Interface) pour __récupérer des données__ en temps réel ou pour __automatiser des tâches__ (package `wikipedia` en python par exemple). ,
+
+## Exemple de parcours de requêtes serveurs depuis le client
+### Accès à une page
+Lorsque vous accédez à une page Wikipédia, vous __accédez en fait à un serveur de cache__ qui vous la renvoie (si la page est en cache, plus de 90% des cas). Si elle n'est pas en cache sur le serveur , ce dernier envoit une __requête au serveur "application"__ de Wikipédia (Ashburn Virginia, USA le plus souvent) pour chercher une version en cache sur ce dernier sinon le serveur "application" va __lancer MediaWiki pour rendre un HTML__ qui sera envoyé à l'utilisateur. 
+
+Il est intéressant de noter cette différence en terme de temps de réponse entre une page en cache et une page non en cache en essayant de chager une page dans un langue "relativement" peu parlée sur internet comme le quechua et une autre langue plus parlée comme l'anglais.
+
+### Mise à jour d'une page
+Lorsque vous mettez à jour une page, vous vous connectez directement à un serveur "application". La première action des serveurs est d' __invalider le cache__ sur tous les serveurs (via _Apache Kafka_). La page corrigée est alors __stockée dans la base de données du serveur "application"__, rendue par et le __cache de ces serveurs est mis à jour__. Cependant, le cache des serveurs "cache" n'est pas mis à jour immédiatement, il le sera au moment de la requête de la page par un nouvel utilisateur sur le serveur (_cf_ ci-dessus).
+
+Je n'ai pas trouvé d'information précise sur la manière dont les modifications sont stockées dans la base de données, mais il semblerait que les modifications soient stockées dans une base de données relationnelle (MySQL ou MariaDB). Aussi, je n'ai pas trouvé d'information sur la manière dont Wikimedia verifie la cohérencre des modifications (deux modifications simultanées par exemple). 
+
+### Création d'une nouvelle page
+La création d'une nouvelle page est __stockée dans la base de données d'un serveur "application"__ et le cache de ce serveur est mis à jour. La page est alors rendue par le serveur "application" et le __cache de ce serveurs est mis à jour__. Cependant, le cache des serveurs "cache" n'est pas mis à jour immédiatement, il le sera au moment de la requête de la page par un nouvel utilisateur (et uniquement sur le serveur "cache" qui reçoit la requête).
+
+![Schéma de l'infrastructure de Wikipédia](./img/Wikipedia_infra.png)
+
+![Infographie sur le volume de données de Wikipédia](./img/Wikipedia_size.png)
+
+
+# Exemple de manipulation de données _Big Data_ sur Wikipédia
+
+En allant sur le site des dumps de Wikipédia, il est possible de télécharger des fichiers XML contenant les pages actuelles de Wikipédia dans une langue. Ces fichiers compressés sont très volumineux (plusieurs Go) et contiennent des informations sur les pages, les utilisateurs, les catégories, les liens, les médias, etc. Il est  possible de télécharger des fichiers de __métadonnées__ pour avoir des informations sur les pages, les utilisateurs, les catégories, les liens, les médias, etc.
+
+
+L'objet de cette partie est donc de mettre en pratique de l'utilisation des ressources Wikipédia dans un contexte de Big Data. Les données de Wikipédia (textuelles) étant en accès libre au format `.xml` (qui n'est pas celui utilisé par l'infrastructure WikiMedia) et donc traitable directement en python. 
+
+J'ai préféré travailler sur les données de Wikipédia en galicien pour des raisons de taille de fichier et de facilité de traitement (le français étant trop volumineux pour être traité sur nos machines, et le galicien offrant la possibilité de comprendre à grand traits le texte à des fins de vérification).
+
+J'ai décidé de faire trois choses :
+
+- télécharger les données textuelles de Wikipédia (préalable) en galicien
+- une liste de tous les articles de Wikipédia en galicien avec leur titre et leur template (indication sur la catégorie de l'article)
+- récupérer le texte de tous les articles de Wikipédia en galicien et les stocker dans une base de données SQL
+- faire un interface graphique simple de recherche et d'affichage des articles de Wikipédia en galicien
+
+L'ensemble des fichiers (fonctions appelées, Jupyter Notebook retraçant le tout en détail, architecture de fichier...) sont accessibles dans le [dépôt git](https://gitlab-mi.univ-reims.fr/mari0167/mywiki) associé à ce projet.
+
+## Téléchargement des données
+Le premier préalable est de télécharger les données de Wikipédia. Pour cela, je suis simplement allés sur le site des dumps de Wikipédia [en galicien](https://dumps.wikimedia.org/glwiki/latest/) et avons téléchargé les fichiers `**wiki-latest-pages-articles.xml.bz2` (étoile selon code de la langue). Les fichiers sont assez volumineux, et le téléchargement peut prendre un certain temps (surtout pour le français ou l'anglais).
+
+Le téléchargement peut se faire en ligne de commande avec la commande `curl` ou `wget`. Par exemple, pour télécharger le fichier `glwiki-latest-pages-articles.xml.bz2` en galicien, on peut utiliser la commande suivante :
+```{{bash}}
+curl https://dumps.wikimedia.org/glwiki/latest/glwiki-latest-pages-articles.xml.bz2 --output ./dumps/glwiki-latest-pages-articles.xml.bz2
+```
+
+Il faut ensuite décompresser le fichier `.bz2` avec la commande suivante :
+```{{bash}}
+bzip2 -d ./dumps/glwiki-latest-pages-articles.xml.bz2
+```
+
+
+## Récupération de la liste des articles depuis le fichier `.xml`
+J'ai réalisé un programme sous la forme d'une fonction pour qu'il prenne en entrée le fichier `.xml` téléchargé et qu'il sauvegarde les données désirées dans des fichiers `.csv`.
+
+### Ressources
+Cette partie est fortement inspirée d'un [tutoriel accessible en ligne](https://www.heatonresearch.com/2017/03/03/python-basic-wikipedia-parsing.html) et de la [vidéo](https://www.youtube.com/watch?v=AeRN4zI7Dhk&t=679s). L'auteur de ce tutoriel a écrit un programme en python qui permet de récupérer la liste des articles de Wikipédia, avec leur titre et leur template à partir du xml et les sauvegarder dans un fichier `.csv`. 
+
+
+### Fonction principale
+Comme le fichier `.xml` est très volumineux, il est préférable de ne pas le charger en mémoire. Il faut le parcourir ligne par ligne pour récupérer les informations intéressantes (en utilisant la librairie `xml.etree.ElementTree` dans mon cas). 
+
+J'ai défini une fonction `retrieve_article_info` qui prend en entrée le fichier `.xml` et qui renvoie la liste des articles, des redirections et des templates dans des fichiers `.csv`.Le détail de cette fonction est visible dans le fichier `mywiki_funct.py` le [dépôt git](https://gitlab-mi.univ-reims.fr/mari0167/mywiki).
+
+
+### Exécution de la fonction
+Les noms de chemin sont assignés avant d'exécuter la fonction `retrieve_article_info` pour le fichier `.xml` en galicien. 
+```{{python}}
+path_wd = os.path.abspath(os.getcwd())
+gl_file_path = 'dumps/glwiki-latest-pages-articles.xml'
+
+file_articles = 'output_csv/articles_gl.csv'
+file_redicrect = 'output_csv/articles_redirect_gl.csv'
+file_template = 'output_csv/articles_template_gl.csv'
+
+retrieve_article_info(path_wd, 
+                      gl_file_path, 
+                      file_articles, 
+                      file_redicrect, 
+                      file_template)
+```
+
+#### Résultats
+Le programme prend un certain temps pour s'exécuter. Voici un extrait du résultat de l'exécution du programme :
+```
+100,000
+200,000
+300,000
+400,000
+Total pages: 409,740
+Template pages: 24,441
+Article pages: 95,361
+Redirect pages: 289,938
+Elapsed time: 0:00:28.35
+```
+
+
+Voici les 10 premières lignes du fichier `articles_gl.csv` :
+```
+id,title,redirect
+2,Alimento,
+3,Arqueoloxía,
+4,Arte,
+8,Autor,
+9,Autoridade,
+11,Acción,
+12,Acto,
+13,"Actor, actriz",
+15,Antropoloxía,
+```
+
+Globalement ces fichiers permettent de percevoir l'ensemble des articles du Wikipédia galicien, la partie de ces articles qui renvoient en fait vers d'autres (dans une logique d'une base de données relationnelle) et la liste des templates utilisés pour les articles.
+
+
+## Récupération des textes des articles et stockage
+### Extraction des textes de articles via `wikiextractor` depuis le fichier `.xml`
+A partir du fichier `.xml` téléchargé, j'ai pu extraire les données textuelles des articles de Wikipédia. Pour cela, j'ai eu recours au programme `wikiextractor` disponible sur [ce dépôt github](https://github.com/attardi/wikiextractor). En lançant la commande suivante sur le fichier `.xml` téléchargé, j'ai pu extraire les textes des articles de Wikipédia en galicien dans un dossier `text_gl` :
+
+```{{bash}}
+python -m wikiextractor.WikiExtractor ./dumps/glwiki-latest-pages-articles.xml.bz2 -o ./text/text_gl
+```
+
+La commande prend quelques dizaines de secondes pour s'exéuter afin d'extraire le texte sur un fichier de plus de 1,3 Go. 
+
+```
+INFO: Preprocessing './dumps/glwiki-latest-pages-articles.xml.bz2' 
+to collect template definitions: this may take some time.
+INFO: Preprocessed 100000 pages
+INFO: Preprocessed 200000 pages
+INFO: Preprocessed 300000 pages
+INFO: Preprocessed 400000 pages
+INFO: Loaded 24441 templates in 87.9s
+INFO: Starting page extraction from ./dumps/glwiki-latest-pages-articles.xml.bz2.
+INFO: Using 7 extract processes.
+INFO: Extracted 100000 articles (1824.7 art/s)
+INFO: Extracted 200000 articles (2209.0 art/s)
+INFO: Finished 7-process extraction of 297324 articles in 145.4s (2045.6 art/s)
+```
+
+Le résultat est un dossier `text_gl` contenant des sous-dossiers `AA`, `AB`, `AC` et `AD` contenant chacun des fichiers `wiki_00`, `wiki_01`, ..., `wiki_99` avec tout le texte des articles de Wikipédia séparés par des balises `<doc>` et `</doc>`.
+
+La commande ls permet de voir le contenu du dossier `text_gl`.
+```{{bash}}
+ls text_gl
+```
+
+Fichiers du dossier `text_gl` :
+```
+AA  AC  AB  AD 
+```
+
+```{{bash}}
+ls text_gl/AA
+```
+Fichier du sous-dossier `text_gl/AA` :
+```
+wiki_00  wiki_12  wiki_24  wiki_36  wiki_48  wiki_60  wiki_72  wiki_84  wiki_96
+wiki_01  wiki_13  wiki_25  wiki_37  wiki_49  wiki_61  wiki_73  wiki_85  wiki_97
+wiki_02  wiki_14  wiki_26  wiki_38  wiki_50  wiki_62  wiki_74  wiki_86  wiki_98
+wiki_03  wiki_15  wiki_27  wiki_39  wiki_51  wiki_63  wiki_75  wiki_87  wiki_99
+wiki_04  wiki_16  wiki_28  wiki_40  wiki_52  wiki_64  wiki_76  wiki_88
+wiki_05  wiki_17  wiki_29  wiki_41  wiki_53  wiki_65  wiki_77  wiki_89
+wiki_06  wiki_18  wiki_30  wiki_42  wiki_54  wiki_66  wiki_78  wiki_90
+wiki_07  wiki_19  wiki_31  wiki_43  wiki_55  wiki_67  wiki_79  wiki_91
+wiki_08  wiki_20  wiki_32  wiki_44  wiki_56  wiki_68  wiki_80  wiki_92
+wiki_09  wiki_21  wiki_33  wiki_45  wiki_57  wiki_69  wiki_81  wiki_93
+wiki_10  wiki_22  wiki_34  wiki_46  wiki_58  wiki_70  wiki_82  wiki_94
+wiki_11  wiki_23  wiki_35  wiki_47  wiki_59  wiki_71  wiki_83  wiki_95
+```
+
+Chacun des fichiers `wiki_00`, `wiki_01`, ..., `wiki_99` contient le texte de plusieurs articles de Wikipédia. La commande suivante permet de voir le contenu du fichier `wiki_00`.
+
+```{{bash}}
+cat text_gl/AA/wiki_00
+```
+Voici un extrait du contenu du fichier `wiki_00` (les balises `<doc>` et `</doc>` indiquent le début et la fin d'un article, les "..." indique que le texte est tronqué pour des raisons de lisibilité, et le texte est en galicien) :
+```
+<doc id="2" url="https://gl.wikipedia.org/wiki?curid=2" title="Alimento">
+Alimento
+
+O alimento é a substancia normalmente comida ou bebida por seres vivos. 
+O termo alimento inclúe tamén bebidas líquidas. 
+A comida é a principal fonte de enerxía e nutrición dos animais, e é xeralmente de orixe animal ou vexetal.
+Diversas disciplinas encárganse do estudo dos alimentos desde enfoques distintos: a bioloxía estuda os mecanismos de obtención, dixestión e refugallo dos alimentos por parte dos organismos, a ecoloxía estuda as cadeas alimentarias, a química dos alimentos a composición dos alimentos e o xeito no que se metabolizan dentro do organismo, e a tecnoloxía dos alimentos estuda a elaboración, produción e uso dos produtos destinados ao consumo humano.
+...
+
+</doc>
+...
+<doc id="187" url="https://gl.wikipedia.org/wiki?curid=187" title="Grupo sanguíneo">
+Grupo sanguíneo
+
+...
+Frecuencia.
+A distribución dos grupos sanguíneos na poboación humana non é uniforme. 
+O máis común é O+, mentres que o máis infrecuente é AB-. 
+Ademais, hai variacións na distribución nas distintas poboacións humanas.
+
+</doc>
+```
+
+### Stockage des fichiers `.txt` dans une base de données SQL via l'API Python de SQLite
+Pour cela, il faut d'abord les séparer en articles individuels puis les stocker en gardant les infos sur les `id`, les `url` et les `titres`. J'ai écrit une suite de fonctions (disponible dans le script `mywiki_funct.py` sur le [dépôt git](https://gitlab-mi.univ-reims.fr/mari0167/mywiki)) en python pour cela.
+
+En appelant la fonction _wrapper_ `looper_wrapper_splitter_txt` avec les bons chemins, j'ai réussi à obtenir une base de données SQL contenant les articles de Wikipédia en galicien. 
+```{{python}}
+looper_wrapper_splitter_txt(os.path.join(path_wd, 'text', 'text_gl'), 
+                            os.path.join(path_wd, 'DB', 'wiki_gl.db'))
+```
+
+## _GUI_ simple de recherche et d'affichage des articles de Wikipédia en galicien
+
+L'objectif final est de créer une interface graphique simple pour rechercher et afficher les articles de Wikipédia en galicien. Pour cela, j'ai utilisé la librairie `tkinter` de python.
+
+### Création de la classe `WikiSearch`
+On construit d'abord la classe permettant de formaliser l'interface utilisateur avec une barre de recherche (Github Copilot m'a été d'une grande aide...). Elle inclut une barre de recherche, un bouton pour lancer la recherche, un espace pour afficher les résultats et un scrollbar pour naviguer dans les résultats.
+
+```{{python}}
+class WikiSearchGUI:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Search GUI for WikiGallego")
+        self.root.geometry("1200x600")
+        self.root.config(bg='lightblue')  # Set background color to light blue
+
+        self.label = tk.Label(root, text="Enter the name of an article:", 
+                              font=("Arial", 14), bg='lightblue')
+        self.label.pack()
+
+        self.entry = tk.Entry(root, font=("Arial", 14))
+        self.entry.pack()
+
+        self.button = tk.Button(root, text="Search", 
+                                command=self.search_database, font=("Arial", 14))
+        self.button.pack()
+
+        # Create a scrollbar
+        self.scrollbar = tk.Scrollbar(root)
+        self.scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+
+        # Create a Text widget with a scrollbar
+        self.result_text = tk.Text(root, wrap=tk.WORD, 
+                                   yscrollcommand=self.scrollbar.set, 
+                                   font=("Arial", 14))
+        self.result_text.pack(fill=tk.BOTH)
+
+        # Configure the scrollbar
+        self.scrollbar.config(command=self.result_text.yview)
+
+    def search_database(self):
+        title = self.entry.get().lower()
+        conn = sqlite3.connect('DB/wiki_gl.db') 
+        cursor = conn.cursor()
+        cursor.execute(f"SELECT title, url, text FROM articles 
+                        WHERE LOWER(title) = '{title}'")
+        result = cursor.fetchone()
+        conn.close()
+        
+        if result is not None:
+            self.result_text.delete(1.0, tk.END)
+            self.result_text.insert(tk.END, f"Title: {result[0]}\nURL: ")
+            self.result_text.insert(tk.END, f"{result[1]}\n", "link")
+            self.result_text.insert(tk.END, f"Text: {result[2]}")
+            self.result_text.tag_config("link", foreground="blue", underline=1)
+            self.result_text.tag_bind("link", "<Button-1>", 
+                                      lambda e: webbrowser.open_new(result[1]))
+        else:
+            self.result_text.delete(1.0, tk.END)
+            self.result_text.insert(tk.END, f"No data found for the title '{title}'")
+```
+### Appel de la classe `WikiSearch`
+On appelle ensuite la classe `WikiSearch` pour créer l'interface graphique. 
+```{{python}}
+root = tk.Tk()
+app = WikiSearchGUI(root)
+root.mainloop()
+```
+
+### Résultat
+L'interface graphique affiche d'abord une barre de recherche :
+
+
+La recherche sur la base de données se fait en utilisant la librairie `sqlite3` de python. La recherche se fait sur le titre de l'article (peu importe les majuscules).
+
+Si un article est trouvé, le titre, l'url et le texte de l'article sont affichés. Si l'utilisateur clique sur l'url, il est redirigé vers la page de l'article sur Wikipédia.
+
+Sinon un message indiquant que l'article n'a pas été trouvé est affiché.
+
+![Recherche](./img/Search.png)
+
+![Résultat](./img/Found.png)
+
+![Pas trouvé](./img/NotFound.png)
+
+### Comparaison avec la vraie interface de Wikipédia
+Comme il a été dit plus haut, Wikipédia met en cache les pages déjà rendues sous HTML (90% des cas) si elle est disponible, sinon les rends depuis les données de la base MariaDB. 
+
+Notre interface simple ne dispose pas de cache, la recherche dans la base de données et le rendu se fait donc à chaque fois que l'utilisateur clique sur le bouton "Search". Aussi, la recherche se fait sur le titre de l'article et non sur le contenu de l'article. Enfin, l'interface graphique est très simple et ne permet pas de faire des recherches avancées ou de naviguer dans les catégories.
+
+
+# Sources
+## Articles Wikipédia (inception)
+- [Article Wikipédia sur Wikipédia](https://fr.wikipedia.org/wiki/Wikip%C3%A9dia)
+- [Article Wikipédia sur les statistiques de Wikipédia](https://www.mediametrie.fr/)
+- [Article Wikipédia sur la Wikimedia Foundation](https://fr.wikipedia.org/wiki/Wikimedia_Foundation)
+- [Article Wikipédia sur le fonctionnement des serveurs de wikipédia](https://meta.wikimedia.org/wiki/Wikimedia_servers)
+
+## Sites d'information sur les aspects techniques de wikimédia
+- [Status des serveurs wikipédia](https://www.wikimediastatus.net/)
+- [Dashboard sur les statistiques de Wikipédia (et d'autres projet wikimédia)](https://stats.wikimedia.org/#/all-projects)
+- [Documentation technique sur MediaWiki](https://wikitech.wikimedia.org/wiki/Main_Page)
+
+## Téléchargemer les données de Wikipédia
+- [Liste des dépôt de données de Wikipédia](https://meta.wikimedia.org/wiki/Data_dumps)
+- ['Last dump' de Wikipédia en français](https://dumps.wikimedia.org/frwiki/latest/)  
+- [Application Kiwik pour lire Wikipédia en hors-ligne](https://kiwix.org/fr/)
+
+## Conférences
+- [Conférence de la Wikimedia Foundation lors de la 36C3 (conférence internationale sur le _hacking_)](https://www.youtube.com/watch?v=Cm22KJGjp4M)
+
+## Articles de presse
+- [Article du Monde sur les manipulations de Wikipédia pendant la présidentielle 2022](https://www.lemonde.fr/pixels/article/2022/02/21/page-wikipedia-d-eric-zemmour-l-encyclopedie-en-ligne-repond-aux-tentatives-de-manipulation_6114625_4408996.html)
+- [Article de l'Humanité sur les bénévoles de Wikipédia](https://www.humanite.fr/politique/internet/qui-sont-les-wikiredacteurs-une-patrouilleuse-de-wikipedia-nous-repond)
+- [Article de l'Humanité sur le fonctionnement économique de Wikipédia](https://www.humanite.fr/politique/dons/liberte-dacces-et-des-millions-de-dollars-de-dons-comment-fonctionne-wikipedia)
+- [Article du Monde sur la réouverte de Wikipédia en Turquie](https://www.lemonde.fr/pixels/article/2020/01/16/wikipedia-de-nouveau-accessible-en-turquie_6026098_4408996.html)
+
+
+## Tutoriels et autres ressources pour extraire les données de Wikipédia
+- [Tutoriel pour extraire les titres des article de Wikipédia en .xml](https://www.heatonresearch.com/2017/03/03/python-basic-wikipedia-parsing.html)
+- [Vidéo pour extraire les titre des articles de Wikipédia en .xml](https://www.youtube.com/watch?v=AeRN4zI7Dhk&t=679s)
+- [Dépôt github de `wikiextractor`](https://github.com/attardi/wikiextractor)
+- [Dumps de Wikipédia en galicien](https://dumps.wikimedia.org/glwiki/latest/)
+- [Wrapper Python de l'API de Wikipédia](https://pypi.org/project/wikipedia/)  
