@@ -16,6 +16,8 @@ author: "Benoît MARION"
 lang: fr
 ---
 
+
+# Résumé
 Ce document a pour objectif de mettre en lumière les enjeux Big Data pour Wikipédia, de présenter l'infrastructure de Wikipédia et de montrer un exemple de manipulation de données Big Data sur Wikipédia. 
 
 Les codes utilisés sont disponibles intégralement dans le [dépôt git](https://gitlab-mi.univ-reims.fr/mari0167/mywiki) associé à ce projet.
