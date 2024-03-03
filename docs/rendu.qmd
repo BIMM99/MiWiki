@@ -16,6 +16,10 @@ author: "Benoît MARION"
 lang: fr
 ---
 
+Ce document a pour objectif de mettre en lumière les enjeux Big Data pour Wikipédia, de présenter l'infrastructure de Wikipédia et de montrer un exemple de manipulation de données Big Data sur Wikipédia. 
+
+Les codes utilisés sont disponibles intégralement dans le [dépôt git](https://gitlab-mi.univ-reims.fr/mari0167/mywiki) associé à ce projet.
+
 # Mise en contexte
 ## Qu'est-ce que Wikipédia ?
 __Wikipédia__ est une __encyclopédie en ligne, libre, gratuite et collaborative__. Crée le 15 janvier 2001 par Jimmy Wales et Larry Sanger, elle se caractérisa avant tout par son contenu librement réutilisable, son __aspect participatif__ (elle est écrite par des bénévoles), sa __structure ouverte__ et sa __politique de neutralité__ (tant politiquement que pour la publicité).
