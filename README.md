@@ -20,3 +20,9 @@ Il y a des fonctions permettant
 - les dossiers `output_csv`, `dumps`, `DB` et `text` qui sont vidse mais sont nécessaire pour l'arborescence, ils doivent recevoir les dumps téléchargés depuis le site de Wikipédia, les outputs en csv et les textes (de WikiExtractor)
 - le dossier `img` avec des images de la _GUI_ et des images utilisées dans le rapport de `docs` pour le rendu du `.qmd`
 - ce `README.md` présentant succintement le rapport
+
+
+## Requirements
+- Python 3.9+ avec `pandas`, `tkinter`et `sqlite3`installés
+- Bash (système Unix) avec `curl` installé
+- `Wikipedia.Extractor` (installable via pip)
