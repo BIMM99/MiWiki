@@ -1,0 +1,1 @@
+ce dossier recevra les fichier listant les dossiers csv crées durant le traitement (MyWiki.ipynb)
