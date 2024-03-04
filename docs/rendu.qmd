@@ -12,7 +12,6 @@ format:
 toc : true
 toc-title: Sommaire
 number-sections: true
-author: "Benoît MARION"
 lang: fr
 ---
 
