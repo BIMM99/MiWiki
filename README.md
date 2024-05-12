@@ -2,9 +2,6 @@
 
 Ce dépôt contient divers fichiers permettant de valoriser les _dumps_ de Wikipédia disponibles à ce [lien](https://dumps.wikimedia.org/).
 
-Il a été réalisé dans le cadre d'un projet de classe durant l'année scolaire 2023-24 (cours d'Outils Big Data à l'URCA de M. Bart Lamiroy).
-
-
 ## Possibilités
 Il y a des fonctions permettant 
 
